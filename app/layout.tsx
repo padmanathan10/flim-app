@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <header className="bg-gray-800 py-6 h-[74px]">
+          <div className="container">
+            <Image src="/tmdb-logo.svg" alt="logo" width={60} height={24} />
+            <nav></nav>
+          </div>
+        </header>
+        <div
+          className="bg-gradient-to-b from-slate-400 to-slate-300"
+          style={{ height: "calc(100vh - 74px)", overflow: "scroll" }}
+        >
+          {children}
+        </div>
       </body>
     </html>
   );
