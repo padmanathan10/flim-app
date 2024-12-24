@@ -13,11 +13,11 @@ interface IENewMovie {
   vote_average: number;
 }
 
-interface INewMovies {
-  NewMovies: IENewMovie[];
+interface INowPlayingMovies {
+  NowPlayingMovies: IENewMovie[];
 }
 
-const EmblaWrapper = ({ NewMovies }: INewMovies) => {
+const EmblaWrapper = ({ NowPlayingMovies }: INowPlayingMovies) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [
     Autoplay({ delay: 3000 }),
   ]);
@@ -34,7 +34,7 @@ const EmblaWrapper = ({ NewMovies }: INewMovies) => {
     <div className="embla py-5">
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {NewMovies.map((NewMovie: IENewMovie) => (
+          {NowPlayingMovies.map((NewMovie: IENewMovie) => (
             <div
               className="embla__slide duration-150 hover:-translate-y-[3px]"
               key={NewMovie.id}
