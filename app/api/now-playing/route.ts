@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
 
-  const req = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", {
+  const apiCall = await fetch("https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1", {
     method: "GET",
       headers: {
         accept: "application/json",
@@ -10,7 +10,7 @@ export async function GET() {
       },
   })
 
-  const data = await req.json()
+  const data = await apiCall.json()
 
   return NextResponse.json(data)
 }
