@@ -1,3 +1,4 @@
+// layout.tsx
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -36,6 +37,7 @@ export default function RootLayout({
           </div>
         </header>
         <div
+          id="scrollable-content"
           className="bg-gradient-to-b from-slate-400 to-slate-300"
           style={{ height: "calc(100vh - 74px)", overflow: "scroll" }}
         >

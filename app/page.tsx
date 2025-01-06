@@ -1,10 +1,5 @@
-// "use client";
-
 import EmblaWrapper from "./component/EmblaWrapper";
-import TabWrapper from "./component/TabWrapper";
-
-// import axios from "axios";
-// const API_KEY = "457aa28e9bf9ee647e8fd3ab14381a6c";
+import PageClient from "./page.client";
 
 export default async function Home() {
   const NowPlayingMoviesData = await fetch(
@@ -32,10 +27,7 @@ export default async function Home() {
       </h3>
       <EmblaWrapper NowPlayingMovies={NowPlayingMovies} />
       <div className="max-w-[1100px] px-4 mx-auto mt-10">
-        <TabWrapper
-          PopularMovies={PopularMovies}
-          PopularTvShows={PopularTvShows}
-        />
+        <PageClient data={{ PopularMovies, PopularTvShows }} />
       </div>
     </div>
   );
