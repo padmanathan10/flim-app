@@ -2,7 +2,7 @@
 import { NextResponse, NextRequest } from "next/server";
 export async function GET(req:NextRequest) {
   const searchParam =new URL(req.url)
-  const pageNumber = searchParam.searchParams.get("page") || 1;
+  const pageNumber = searchParam.searchParams.get("page");
  
   const apiCall = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${pageNumber}`, {
     method: "GET",

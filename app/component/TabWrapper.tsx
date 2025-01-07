@@ -1,30 +1,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MovieCard from "./MovieCard";
-
-type BaseMedia = {
-  id: number;
-  poster_path: string;
-  vote_average: number;
-};
-
-type PopularMovie = BaseMedia & {
-  original_title: string;
-};
-
-type PopularTvShow = BaseMedia & {
-  original_name: string;
-};
-
-type PopularMoviesProps = {
-  PopularMovies: PopularMovie[];
-};
-
-type PopularTvShowsProps = {
-  PopularTvShows: PopularTvShow[];
-};
-
-type TabWrapperProps = PopularMoviesProps & PopularTvShowsProps;
+import { TabWrapperProps } from "../types";
 
 const TabWrapper: React.FC<TabWrapperProps> = ({
   PopularMovies,
@@ -56,7 +33,7 @@ const TabWrapper: React.FC<TabWrapperProps> = ({
           {PopularMovies.map((movie) => (
             <div
               className="duration-150 hover:-translate-y-[3px] mx-2 mb-4"
-              key={movie.id}
+              key={movie.id + Math.random()}
             >
               <MovieCard
                 id={movie.id}
@@ -76,7 +53,7 @@ const TabWrapper: React.FC<TabWrapperProps> = ({
           {PopularTvShows.map((show) => (
             <div
               className="duration-150 hover:-translate-y-[3px] mx-2 mb-4"
-              key={show.id}
+              key={show.id + Math.random()}
             >
               <MovieCard
                 id={show.id}
