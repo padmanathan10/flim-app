@@ -40,6 +40,7 @@ const TabWrapper: React.FC<TabWrapperProps> = ({
                 title={movie.original_title}
                 image={"https://image.tmdb.org/t/p/w500" + movie.poster_path}
                 rating={movie.vote_average}
+                data={movie}
               />
             </div>
           ))}
@@ -49,7 +50,7 @@ const TabWrapper: React.FC<TabWrapperProps> = ({
         <h2 className="text-xl text-gray-800 font-bold text-center pb-8 uppercase tracking-tight">
           Popular TV Shows
         </h2>
-        <div className="flex flex-wrap -mx-4">
+        <div className="flex flex-wrap justify-center -mx-4">
           {PopularTvShows.map((show) => (
             <div
               className="duration-150 hover:-translate-y-[3px] mx-2 mb-4"
@@ -60,6 +61,7 @@ const TabWrapper: React.FC<TabWrapperProps> = ({
                 title={show.original_name}
                 image={"https://image.tmdb.org/t/p/w500" + show.poster_path}
                 rating={show.vote_average}
+                data={show}
               />
             </div>
           ))}

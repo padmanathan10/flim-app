@@ -44,6 +44,7 @@ const EmblaWrapper = ({ NowPlayingMovies }: INowPlayingMovies) => {
                 title={NewMovie.original_title}
                 image={"https://image.tmdb.org/t/p/w500" + NewMovie.poster_path}
                 rating={NewMovie.vote_average}
+                data={NewMovie}
               />
             </div>
           ))}
