@@ -1,3 +1,4 @@
+import { db } from "@/lib/prisma";
 import EmblaWrapper from "./component/EmblaWrapper";
 import PageClient from "./page.client";
 import { fetchPopularMovies, fetchPopularTvShows } from "./utils/fetch";
@@ -11,6 +12,10 @@ export default async function Home() {
 
   const PopularTvShows = await fetchPopularTvShows();
   const PopularMovies = await fetchPopularMovies();
+
+  // const post = await db.post.create({
+  //   data: {},
+  // });
 
   return (
     <div>

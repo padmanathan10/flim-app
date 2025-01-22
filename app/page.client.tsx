@@ -17,14 +17,14 @@ export default function PageClient(props: TabWrapperProps) {
   useEffect(() => {
     if (isBottom) {
       const fetchMorePopularMovies = async () => {
-        const nextPageMovies = await fetchPopularMovies(pageNumber + 1); // Fetch the next page
-        setNewPopularMovies((three) => [...three, ...nextPageMovies]); // Append new movies
+        const nextPageMovies = await fetchPopularMovies(pageNumber + 1);
+        setNewPopularMovies((three) => [...three, ...nextPageMovies]);
       };
       setPageNumber((prevPageNumber) => prevPageNumber + 1);
       fetchMorePopularMovies();
       const fetchMorePopularTvShows = async () => {
-        const nextPagePopularShows = await fetchPopularTvShows(pageNumber + 1); // Fetch the next page
-        setNewPopularTvShows((three) => [...three, ...nextPagePopularShows]); // Append new shows
+        const nextPagePopularShows = await fetchPopularTvShows(pageNumber + 1);
+        setNewPopularTvShows((three) => [...three, ...nextPagePopularShows]);
       };
       setPageNumber((prevPageNumber) => prevPageNumber + 1);
       fetchMorePopularTvShows();
