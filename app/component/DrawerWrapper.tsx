@@ -21,7 +21,7 @@ const DrawerWrapper = ({
   onOpenChange: (open: boolean) => void;
   data: any;
 }) => {
-  console.log("individual data", data);
+  // console.log("individual data", data);
   return (
     <Drawer open={isOpen} onOpenChange={onOpenChange}>
       <DrawerContent className="bg-black max-w-[1140px] w-full mx-auto border-gray-700">

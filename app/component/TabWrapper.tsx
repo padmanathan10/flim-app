@@ -3,12 +3,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MovieCard from "./MovieCard";
 import { TabWrapperProps } from "../types";
 
-const TabWrapper: React.FC<TabWrapperProps> = ({
+interface TabWrapperExtendedProps extends TabWrapperProps {
+  setActiveTab: (tab: "movies" | "tv-shows") => void;
+}
+
+const TabWrapper: React.FC<TabWrapperExtendedProps> = ({
   PopularMovies,
   PopularTvShows,
+  setActiveTab,
 }) => {
   return (
-    <Tabs defaultValue="movies" className="">
+    <Tabs
+      defaultValue="movies"
+      className=""
+      onValueChange={(value) => setActiveTab(value as "movies" | "tv-shows")}
+    >
       <div className="w-full flex justify-center mb-8">
         <TabsList className="bg-gray-700">
           <TabsTrigger
@@ -33,7 +42,7 @@ const TabWrapper: React.FC<TabWrapperProps> = ({
           {PopularMovies.map((movie) => (
             <div
               className="duration-150 hover:-translate-y-[3px] mx-2 mb-4"
-              key={movie.id + Math.random()}
+              key={movie.id}
             >
               <MovieCard
                 id={movie.id}
@@ -54,7 +63,7 @@ const TabWrapper: React.FC<TabWrapperProps> = ({
           {PopularTvShows.map((show) => (
             <div
               className="duration-150 hover:-translate-y-[3px] mx-2 mb-4"
-              key={show.id + Math.random()}
+              key={show.id}
             >
               <MovieCard
                 id={show.id}

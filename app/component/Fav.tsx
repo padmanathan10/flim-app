@@ -2,9 +2,25 @@
 
 import React from "react";
 
-const Fav = () => {
+const Fav = (
+  { movieId } : { movieId: string }
+) => {
+
+  const handleFav = async () => {
+    const res = await fetch("/api/favourites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ movieId }),
+    })
+    console.log("response",res)
+    const data = await res.json()
+    console.log("data",data.newFav)
+  }
+
   return (
-    <figure className="w-7 h-7 flex items-center justify-center bg-gray-900 rounded-md bg-opacity-70 group">
+    <figure className="w-7 h-7 flex items-center justify-center bg-gray-900 rounded-md bg-opacity-70 group" onClick={handleFav}>
       <svg
         width="18"
         height="15"

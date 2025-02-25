@@ -1,7 +1,8 @@
-import { db } from "@/lib/prisma";
+// import { db } from "@/lib/prisma";
 import EmblaWrapper from "./component/EmblaWrapper";
 import PageClient from "./page.client";
 import { fetchPopularMovies, fetchPopularTvShows } from "./utils/fetch";
+// import { auth } from "@/lib/auth";
 
 export default async function Home() {
   const NowPlayingMoviesData = await fetch(
@@ -13,12 +14,15 @@ export default async function Home() {
   const PopularTvShows = await fetchPopularTvShows();
   const PopularMovies = await fetchPopularMovies();
 
+  // const session = await auth();
+
   // const post = await db.post.create({
   //   data: {},
   // });
 
   return (
     <div>
+      {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
       <h3 className="text-3xl text-gray-800 font-bold text-center pt-8 uppercase tracking-tight">
         Now Playing
       </h3>

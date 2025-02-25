@@ -25,10 +25,10 @@ export function useScrollBottom({ threshold = 0, containerId = "scrollable-conte
 
       if (hasReachedBottom && !reachedBottom) {
         setReachedBottom(true);
-        console.log("Reached bottom");
+        // console.log("Reached bottom");
       } else if (!hasReachedBottom && reachedBottom) {
         setReachedBottom(false);
-        console.log("Left bottom");
+        // console.log("Left bottom");
       }
     };
 
